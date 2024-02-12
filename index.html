@@ -1,6 +1,25 @@
+It seems like you're working on a multi-page website with HTML, CSS, and JavaScript. Your code is structured with different sections, including a landing page and multiple subpages.
+
+Here are a few observations and potential improvements:
+
+1. **HTML Structure**: Overall, the structure seems fine, but there are a couple of issues with HTML comments. You should use `<!--` to start a comment and `-->` to end it. Ensure that comments are properly closed.
+
+2. **JavaScript Placement**: You have JavaScript code included within the `<script>` tag in the `<head>` section. While this is acceptable, it's a good practice to include JavaScript at the end of the `<body>` section to ensure the HTML content is loaded before the JavaScript runs. This helps improve performance and ensures that elements you're trying to manipulate are available when your script runs.
+
+3. **CSS Styling**: Your CSS defines styles for elements such as `.body` and `.page`. However, you might want to reconsider naming conventions to avoid potential conflicts with existing CSS classes or HTML elements.
+
+4. **Functionality**: Your JavaScript functions seem to handle user input and perform calculations based on that input. This functionality appears to work as intended.
+
+5. **Links and Anchors**: You're using anchor tags `<a>` with `href` attributes to navigate between different sections of the page. This is a good use of anchor tags for internal page navigation.
+
+6. **Images**: You're including an image in one of the sections. Ensure that the image source is correct and that the image is accessible.
+
+Here's the corrected version of your code with the comments fixed:
+
+```html
 <!DOCTYPE html>
 <html>
-<!--The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.
+<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative Maker Space Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.
 
 Any user of this code does so at their own risk. Members of the Maker Space Stream, FRI, and The University of Texas system are not liable for anything related to this code.
 
@@ -22,188 +41,130 @@ https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 
-  <!--Formatting source information and webpage title.-->
-  <head>
+<!--Formatting source information and webpage title.-->
+<head>
     <title>Yasmeen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="w3.css">
     <link rel="stylesheet" href="w3-colors-flat.css">
-  </head>
+</head>
 
-  
-
-<!--Javascript code.-->
-<script>
-	var exampleVariable1 = 0;
-	var exampleVariable2 = 0;
-	var exampleVariable3 = 0;
-	
-	function exampleFunction1()
-	{
-		// Assigns values to existing variables based on user input. The parseFloat() function converts string values to numerical values.
-    		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
-    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
-		
-		exampleVariable3 = exampleVariable1 + exampleVariable2;
-		
-		alert("You just ran an addition function!");
-		console.log("Addition function was run.");
-	}
-	
-	function exampleFunction2()
-	{
-		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
-    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
-		
-		exampleVariable3 = exampleVariable1 * exampleVariable2;
-		
-		alert("You just ran a multiplication function!");
-		console.log("Multiplication function was run.");
-	}
-	
-	function exampleFunction3()
-	{
-		exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
-    		exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
-		
-		exampleVariable3 = exampleVariable1 ** exampleVariable2;
-		
-		alert("You just ran an exponent function!");
-		console.log("Exponent function was run.");
-	}
-	
-	function exampleResultsFunction()
-	{
-		document.getElementById("endResults").innerHTML = "Your final result is: " + exampleVariable3;
-		resetVariables();
-	}
-	
-	function resetVariables()
-	{
-		exampleVariable1 = 0;
-		exampleVariable2 = 0;
-		exampleVariable3 = 0;
-	}
-</script>
-  
-  
- 
 <!--CSS webpage style/format settings.-->
-<style>	
-.body {
-     margin: 0 auto;
-}
+<style>
+    .body {
+        margin: 0 auto;
+    }
 
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
+    .page {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        overflow-y: auto;
+        z-index: 0;
+        background-color: hsl(0, 0%, 100%);
+    }
 
-.page:target {
-    left: 0vw;
-    z-index: 1;
-}
+    .page:target {
+        left: 0vw;
+        z-index: 1;
+    }
 </style>
-
-
 
 <!--Main HTML body section.-->
 <body>
-  <!--Landing page content.-->
-  <div id="content" class="w3-container">
-  	<!--Header!-->
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Yasmeen's Website!</h1>
-	</div>
-	
-	  <p>Welcome to Yasmeen's website!</p>
-	
-	  <a href="#one" class="w3-btn w3-grey w3-round">Click here!</a>
-	
-	  <p>Hi my name is Yasmeen and this is my website. Welcome! </p>
-  
-  
-  
-<!--FIRST SUBPAGE-->
-<div id="one" class="page">
-	<div id="header2" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
-	</div>
-	
-  <center>
-    
-    	<div id="content2" class="w3-container">
-        	<p>Enter two numbers: </p>    
-    	</div>
-	
-	<!--Form element. This allows for user input in HTML.-->
-	<form>
-		<!--Label for first input field.-->
-		<label for="firstInputBox">Enter a number:</label><br>
-		<!--User input box.-->
-		<input type="number" id="firstInputBox" value="0"><br>
-		<!--Label for second input field.-->
-		<label for="secondInputBox">Enter another number:</label><br>
-		<!--User input box.-->
-		<input type="number" id="secondInputBox" value="0">
-		
-		<br><br><br>
-	</form>
-      
-  <a href="#finalpage" onclick="exampleFunction1();" class="w3-btn w3-grey">Click me</a>
-  <a href="#finalpage" onclick="exampleFunction2();" class="w3-btn w3-grey">No click me!</a>
-  <a href="#finalpage" onclick="exampleFunction3();" class="w3-btn w3-grey">Click me please!</a>
-    
-  </center>
-</div>  
-  
-  
-  
+<!--Landing page content.-->
+<div id="content" class="w3-container">
+    <!--Header-->
+    <div id="header" class="w3-container w3-flat-carrot">
+        <h1>Yasmeen's Website!</h1>
+    </div>
 
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-<!--LAST SUBPAGE-->
-<div id="finalpage" class="page">
-	<div id="finalheader" class="w3-container w3-flat-carrot">
-		<h1>FINAL PAGE TITLE GOES HERE</h1>
-	</div>
-	
-  <center>
-    
-	  <div id="finalcontent" class="w3-container">
-		  <p id="endResults">Thank you for using Yasmeen's website!</p>
-	  </div>
-  
-  <a class="w3-btn w3-black" onclick="exampleResultsFunction();">Click me!
-    <br>
-    <img id="resultsButtonImg" src="https://i.imgur.com/rZOaHhx.png" width="30" alt="spongebob">
-  </a>
-  <a href="#content" onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
-    
-  </center>
-</div>
-  
-  
-  
-<!--Footer!-->
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>Nice to meet you!</p>
-</footer>
+    <p>Welcome to Yasmeen's website!</p>
+
+    <a href="#one" class="w3-btn w3-grey w3-round">Click here!</a>
+
+    <p>Hi, my name is Yasmeen, and this is my website. Welcome! </p>
+
+    <!--FIRST SUBPAGE-->
+    <div id="one" class="page">
+        <div id="header2" class="w3-container w3-flat-carrot">
+            <h1>Question 1</h1>
+        </div>
+
+        <center>
+
+            <div id="content2" class="w3-container">
+                <p>Enter two numbers: </p>
+            </div>
+
+            <!--Form element. This allows for user input in HTML.-->
+            <form>
+                <!--Label for first input field.-->
+                <label for="firstInputBox">Enter a number:</label><br>
+                <!--User input box.-->
+                <input type="number" id="firstInputBox" value="0"><br>
+                <!--Label for second input field.-->
+                <label for="secondInputBox">Enter another number:</label><br>
+                <!--User input box.-->
+                <input type="number" id="secondInputBox" value="0">
+
+                <br><br><br>
+            </form>
+
+            <a href="#finalpage" onclick="exampleFunction1();" class="w3-btn w3-grey">Click me</a>
+            <a href="#finalpage" onclick="exampleFunction2();" class="w3-btn w3-grey">No click me!</a>
+            <a href="#finalpage" onclick="exampleFunction3();" class="w3-btn w3-grey">Click me please!</a>
+
+        </center>
+    </div>
+
+
+
+    <!--LAST SUBPAGE-->
+    <div id="finalpage" class="page">
+        <div id="finalheader" class="w3-container w3-flat-carrot">
+            <h1>FINAL PAGE TITLE GOES HERE</h1>
+        </div>
+
+        <center>
+
+            <div id="finalcontent" class="w3-container">
+                <p id="endResults">Thank you for using Yasmeen's website!</p>
+            </div>
+
+            <a class="w3-btn w3-black" onclick="exampleResultsFunction();">Click me!
+                <br>
+                <img id="resultsButtonImg" src="https://i.imgur.com/rZOaHhx.png" width="30" alt="spongebob">
+            </a>
+            <a href="#content" onclick="resetVariables();" class="w3-btn w3-black">Return to Home Page</a>
+
+        </center>
+    </div>
+
+    <!--Footer-->
+    <footer class="w3-bottom w3-container w3-flat-carrot">
+        <p>Nice to meet you!</p>
+    </footer>
 </div>
 
-</body>
-</html>
+<!--Javascript code.-->
+<script>
+    var exampleVariable1 = 0;
+    var exampleVariable2 = 0;
+    var exampleVariable3 = 0;
+
+    function exampleFunction1() {
+        // Assigns values to existing variables based on user input. The parseFloat() function converts string values to numerical values.
+        exampleVariable1 = parseFloat(document.getElementById("firstInputBox").value);
+        exampleVariable2 = parseFloat(document.getElementById("secondInputBox").value);
+
+        exampleVariable3 = exampleVariable1 + exampleVariable2;
+
+        alert("You just ran an addition function!");
+        console.log("Addition function was run.");
+    }
+
+   
